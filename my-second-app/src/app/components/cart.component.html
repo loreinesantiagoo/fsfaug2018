@@ -1,3 +1,7 @@
-<p>
-  cart works!
-</p>
+<div *ngIf="cart.length <= 0">
+  <h3>Your cart is empty</h3>
+</div>
+
+<div *ngFor="let i of cart; let n = index" (click)="removeItem(n)">
+  {{ i }}
+</div>

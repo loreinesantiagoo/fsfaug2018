@@ -1,0 +1,33 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>New Task</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+
+    <form #taskForm="ngForm" (ngSubmit)="addTask()">
+      <mat-form-field>
+        <input type="text" name="taskName" placeholder="Please enter the task"
+          ngModel matInput>
+      </mat-form-field>
+
+      <br> <br>
+
+      <mat-radio-group ngModel name="priority">
+        <mat-radio-button value="low">Low</mat-radio-button>
+        <mat-radio-button value="medium">Medium</mat-radio-button>
+        <mat-radio-button value="high">High</mat-radio-button>
+      </mat-radio-group>
+
+      <br> <br>
+
+      <button type="submit" mat-button mat-raised-button color="accent">
+        <mat-icon>add_circle_outline</mat-icon>
+        <span>Add</span>
+      </button>
+
+    </form>
+
+  </mat-card-content>
+
+</mat-card>

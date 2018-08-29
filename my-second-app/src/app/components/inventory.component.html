@@ -1,9 +1,14 @@
 <div *ngFor="let i of inventory; let n = index">
 
-    <img src="/assets/fruits/{{ i.image }}" class="thumbnail">
+    <!--  
+        <img src="/assets/fruits/{{ i.image }}" class="thumbnail">
+    -->
+    <img [src]="i.image" class="thumbnail">
 
     <span class="item-label"> {{ i.label }} </span> ({{ i.quantity }})
 
-    <button type="button" (click)="processItem(n)"> + </button>
+    <button type="button" (click)="processItem(n)" [disabled]="i.quantity <= 0">
+        + 
+    </button>
 
 </div>

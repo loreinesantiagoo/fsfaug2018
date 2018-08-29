@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 export interface LineItem {
   label: string;
@@ -15,19 +15,32 @@ export class InventoryComponent implements OnInit {
 
   //Hardcoded - inventory list
   inventory: LineItem[] = [
-    { label: "Acron Squash", image: "acorn_squash.png", quantity: 10 },
-    { label: "Broccoli", image: "broccoli.png", quantity: 5 }, 
-    { label: "Egg Plant", image: "eggplant.png", quantity: 50 }, 
-    { label: "Radish", image: "radish.png", quantity: 5 }, 
-    { label: "Zucchini", image: "zucchini.png", quantity: 3 }, 
+    { label: "Acron Squash", image: "/assets/fruits/acorn_squash.png", quantity: 10 },
+    { label: "Broccoli", image: "/assets/fruits/broccoli.png", quantity: 5 }, 
+    { label: "Egg Plant", image: "/assets/fruits/eggplant.png", quantity: 50 }, 
+    { label: "Radish", image: "/assets/fruits/radish.png", quantity: 5 }, 
+    { label: "Zucchini", image: "/assets/fruits/zucchini.png", quantity: 3 }, 
   ];
 
   @Output()
   itemSelected = new EventEmitter<string>();
 
+  @Input()
+  newInventory: EventEmitter<string>;
+
   constructor() { }
 
-  ngOnInit() { }
+  //Called when component is created
+  ngOnInit() { 
+    this.newInventory.subscribe(
+      (item) => {
+        console.log('New inventory to be added: ', item);
+        for (let i of this.inventory)
+          if (i.label == item)
+            i.quantity++;
+      }
+    );
+  }
 
   processItem(n: number) {
     this.inventory[n].quantity--;

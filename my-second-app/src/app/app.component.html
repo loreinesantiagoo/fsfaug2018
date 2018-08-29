@@ -3,10 +3,13 @@
 <table>
     <tr>
         <td width="50%">
-            <app-inventory (itemSelected)="newItem($event)"></app-inventory>
+            <app-inventory (itemSelected)="newItem($event)"
+                [newInventory]="returnItem">
+            </app-inventory>
         </td>
         <td>
-            <app-cart></app-cart>
+            <app-cart [cart]="shoppingList" (itemDeleted)="deleteItem($event)">
+            </app-cart>
         </td>
     </tr>
 </table>
