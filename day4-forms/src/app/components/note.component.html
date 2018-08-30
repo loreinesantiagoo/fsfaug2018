@@ -1,0 +1,48 @@
+<form #thought="ngForm" (ngSubmit)="addMyThought(thought)"
+    fxLayout="column row" fxLayoutGap="10px">
+
+  <mat-form-field>
+    <input type="text" placeholder="Your name"
+      #nameField="ngModel"
+      name="name" ngModel matInput required minlength="2" maxlength="10">
+    <mat-hint>Your official name</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input type="email" placeholder="Your email"
+      #emailField="ngModel"
+      name="email" ngModel matInput required email>
+    <mat-hint>Your email</mat-hint>
+    <mat-error *ngIf="emailField.hasError('email')">
+      Must be a valid email
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input type="text" placeholder="Please enter your thoughts"
+      name="thoughts" ngModel matInput required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input name="tod" placeholder="Today's date" 
+      ngModel matInput [matDatepicker]="mydate">
+
+    <mat-datepicker-toggle matSuffix [for]="mydate">
+    </mat-datepicker-toggle>
+
+    <mat-datepicker #mydate></mat-datepicker> 
+  </mat-form-field>
+
+
+  <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="8px">
+    <button type="reset" mat-button mat-raised-button color="primary">
+      <mat-icon>clear</mat-icon> Clear 
+    </button>
+    <button type="submit" mat-button mat-raised-button color="warn"
+        [disabled]="thought.invalid">
+      <mat-icon>home</mat-icon> Add 
+    </button>
+  </div>
+
+
+</form>

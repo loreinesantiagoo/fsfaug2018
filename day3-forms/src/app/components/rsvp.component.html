@@ -1,37 +1,37 @@
-<form #rsvpForm="ngForm" (ngSubmit)="processRSVP(rsvpForm)">
+<form #rsvpForm="ngForm" (ngSubmit)="processRSVP(rsvpForm)"
+  fxLayout="column row" fxLayoutGap="10px">
 
   <mat-form-field>
     <input type="text" name="name" ngModel placeholder="Name" matInput>
   </mat-form-field>
 
-  <table>
-    <tr>
-      <td>Phone:</td>
-      <td>
-        <input type="tel" name="mobile" ngModel>
-      </td>
-    </tr>
-    <tr>
-      <td>Attending?</td>
-      <td>
-        <input type="radio" name="attending" value="true" ngModel>Yes
-        <input type="radio" name="attending" value="false" ngModel>No
-      </td>
-    </tr>
-    <tr>
-      <td>Comments:</td>
-      <td>
-        <textarea name="comments" id="" cols="30" rows="10" ngModel></textarea>
-      </td>
-    </tr>
-    <tr>
-      <td></td>
-      <td>
-        <button type="submit" mat-button mat-raised-button color="accent">
-          RSVP
-        </button>
-      </td>
-    </tr>
-  </table>
+  <mat-form-field>
+      <input type="tel" name="mobile" ngModel placeholder="Your mobile phone" matInput>
+  </mat-form-field>
+
+  <div>Attending?</div>
+  <mat-radio-group name="attending" ngModel fxLayoutGap="5px">
+    <mat-radio-button value="true">Yes</mat-radio-button>
+    <mat-radio-button value="false">No</mat-radio-button>
+  </mat-radio-group>
+
+  <mat-form-field>
+    <input placeholder="Arrival time" name="arrival"
+        ngModel matInput [matDatepicker]="datepicker">
+    <mat-datepicker-toggle matSuffix [for]="datepicker">
+    </mat-datepicker-toggle>
+    <mat-datepicker #datepicker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field>
+    <textarea name="comments" id="" cols="30" rows="5" ngModel placeholder="Any comments?" matInput></textarea>
+  </mat-form-field>
+
+  <div fxLayoutAlign="end">
+    <button type="submit" mat-button mat-raised-button color="accent">
+      <mat-icon>reply</mat-icon>
+      Reply
+    </button>
+  </div>
 
 </form>
