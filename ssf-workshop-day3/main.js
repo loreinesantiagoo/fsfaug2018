@@ -39,7 +39,7 @@ app.get('/image', (req, resp) => {
         'image/png': () => {
             resp.sendFile(path.join(__dirname, 'images', imageFile));
         },
-        'text/html': () => {
+        'text/plain': () => {
             const opt = {
                 fit: 'box', color: true,
                 width: 50, height: 50
