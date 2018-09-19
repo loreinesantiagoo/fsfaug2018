@@ -1,0 +1,17 @@
+runtime: nodejs8
+env: flex
+
+resources:
+   cpu: 1
+   memory_gb: 0.6
+   disk_size_gb: 10
+
+manual_scaling:
+   instances: 1
+
+env_variables:
+   APP_PORT: "8080"
+   PROD: "true"
+
+skip_files:
+   - ^node_modules$
