@@ -1,0 +1,8 @@
+<mat-toolbar color="primary"> My Shopping Cart </mat-toolbar>
+
+<app-entry (newItem)="newItem($event)"
+    (loadCart)="loadCart($event)" (saveCart)="saveCart($event)">
+</app-entry>
+
+<app-list [contents]="items"></app-list>
+

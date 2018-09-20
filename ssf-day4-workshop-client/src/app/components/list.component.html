@@ -1,0 +1,7 @@
+<mat-list *ngIf="contents.length <= 0">
+  <mat-list-item>Your cart is empty</mat-list-item>
+</mat-list>
+
+<mat-list *ngFor="let c of contents">
+  <mat-list-item>{{ c }}</mat-list-item>
+</mat-list>

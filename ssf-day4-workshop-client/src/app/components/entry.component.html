@@ -1,0 +1,33 @@
+<form #form="ngForm" (ngSubmit)="addToCart()"
+      fxLayout="column row" fxLayoutGap="10px">
+  
+  <mat-form-field>
+    <input type="text" name="name" placeholder="Your name" matInput ngModel required
+        #nameField>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input type="text" name="item" placeholder="Item name" matInput ngModel required
+        #itemField="ngModel">
+  </mat-form-field>
+
+  <div fxLayoutAlign="space-between end">
+    <span fxLayoutGap="10px">
+      <button type="button" mat-raised-button color="warn"
+          [disabled]="!nameField.value" (click)="load()">
+        <mat-icon>cloud_download</mat-icon> Load
+      </button>
+      <button type="button" mat-raised-button color="warn"
+          [disabled]="!nameField.value" (click)="save()">
+        <mat-icon>cloud_upload</mat-icon> Save
+      </button>
+
+    </span>
+    <button type="submit" mat-raised-button color="accent"
+        [disabled]="form.invalid">
+      <mat-icon>add_shopping_cart</mat-icon> Add
+    </button>
+
+  </div>
+  
+</form>
