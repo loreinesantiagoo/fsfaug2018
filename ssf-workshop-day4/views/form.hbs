@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Form</title>
+    </head>
+    <body>
+
+        <h2>Cart</h2>
+
+        <form>
+            <table>
+                <tr>
+                    <td>Name:</td>
+                    <td> <input type="text" name="name" value="{{name}}"> </td>
+                </tr>
+                <tr>
+                    <td>Item:</td>
+                    <td> <input type="text" name="item"> </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <button type="submit" formmethod="get" formaction="/api/cart">
+                            Load
+                        </button>
+                        <button type="submit" formmethod="post" formaction="/api/cart">
+                            Save
+                        </button>
+                        <button type="submit" formmethod="post" formaction="/api/add">
+                            Add
+                        </button>
+                    </td>
+                </tr>
+            </table>
+            <input type="hidden" name="cart" value="{{ hiddenContent }}">
+        </form>
+
+        <h2>Basket</h2>
+        <ul>
+            {{#each content}}
+                <li> {{this}} </li>
+            {{/each}}
+        </ul>
+        
+    </body>
+</html>
