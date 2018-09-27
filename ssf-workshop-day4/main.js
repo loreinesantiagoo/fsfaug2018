@@ -133,7 +133,7 @@ app.post('/api/add',
         resp.status(200).type('text/html');
         resp.render('form', {
             layout: false,
-			  	hiddenContent: [],
+			  	hiddenContent: JSON.stringify(savedData.content),
             ...savedData
         });
     }
