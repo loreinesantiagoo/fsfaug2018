@@ -133,6 +133,7 @@ app.post('/api/add',
         resp.status(200).type('text/html');
         resp.render('form', {
             layout: false,
+			  	hiddenContent: JSON.stringify(savedData.content),
             ...savedData
         });
     }
@@ -141,7 +142,7 @@ app.post('/api/add',
 //Load the form
 app.get('/form', (req, resp) => {
     resp.status(200).type('text/html');
-    resp.render('form', { layout: false });
+    resp.render('form', { hiddenContent: '[]', layout: false });
 })
 
 //Serve static resources
