@@ -1,0 +1,37 @@
+<h1>RSVP</h1>
+
+<form #rsvpForm="ngForm" (ngSubmit)="rsvp(rsvpForm)">
+  <table>
+      <tr>
+          <td>Email</td>
+          <td><input type="email" name="email" ngModel></td>
+      </tr>
+      <tr>
+          <td>Name</td>
+          <td><input type="text" name="given_name" ngModel></td>
+      </tr>
+      <tr>
+          <td>Phone</td>
+          <td><input type="tel" name="phone" ngModel></td>
+      </tr>
+      <tr>
+          <td>Attending</td>
+          <td>
+              <input type="radio" name="attending" value="yes" ngModel>Yes
+              <input type="radio" name="attending" value="no" ngModel>No
+          </td>
+      </tr>
+      <tr>
+          <td>Remarks</td>
+          <td>
+              <textarea name="remarks" id="" cols="30" rows="3" ngModel></textarea>
+          </td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>
+              <button type="submit">Reply</button>
+          </td>
+      </tr>
+  </table>
+</form>

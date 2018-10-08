@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+
+        <h1>RSVP</h1>
+
+        <form method="POST" action="/rsvp">
+            <table>
+                <tr>
+                    <td>Email</td>
+                    <td><input type="email" name="email"></td>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td><input type="text" name="given_name"></td>
+                </tr>
+                <tr>
+                    <td>Phone</td>
+                    <td><input type="tel" name="phone"></td>
+                </tr>
+                <tr>
+                    <td>Attending</td>
+                    <td>
+                        <input type="radio" name="attending" value="yes">Yes
+                        <input type="radio" name="attending" value="no">No
+                    </td>
+                </tr>
+                <tr>
+                    <td>Remarks</td>
+                    <td>
+                        <textarea name="remarks" id="" cols="30" rows="3"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <button type="submit">Reply</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        
+    </body>
+</html>
